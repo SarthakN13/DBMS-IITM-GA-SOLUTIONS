@@ -1,1 +1,11 @@
+Question 1
+Write an SQL statement to find the match number of the match held on ‘2020-05-11’ and the name of the main referee who refereed that match. Print match num first followed by respective main referee name.
+Note: main referee is to be obtained from the ‘referee’ attribute.
+Database: FLIS
 
+SOLUTION:
+
+select match_num,name from referees
+inner join match_referees on referees.referee_id=match_referees.referee
+inner join matches using(match_num)
+where match_date=’2020-05-11’;
